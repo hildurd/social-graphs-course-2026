@@ -40,6 +40,8 @@ html, body {
 html {
   overflow-y: scroll;
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -320,7 +322,7 @@ footer {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 640px), (max-height: 500px) and (orientation: landscape) {
   body::before,
   body::after {
     display: none;

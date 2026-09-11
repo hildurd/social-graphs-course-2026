@@ -184,7 +184,7 @@
 
     function positionNav() {
       if (!weekListEl || !siteHeader) return;
-      if (window.matchMedia('(max-width: 640px)').matches) {
+      if (window.matchMedia('(max-width: 640px), (max-height: 500px) and (orientation: landscape)').matches) {
         weekListEl.style.top = '';
         return;
       }
