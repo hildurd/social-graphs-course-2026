@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Graphs and Interactions</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Social Graphs and Interactions</h1>
+    <p class="site-subtitle">
+      <a href="#group" class="brain-graph-link" aria-label="Go to Group page">
+        <img class="brain-graph-icon" src="GroupLogo.png" alt="" width="28" height="28">
+        <span>The Loop<span class="weak-letter">Y</span> Group</span>
+      </a>
+    </p>
+    <p class="intro">
+      This is our group's project blog for the Social Graphs and Interactions course.
+      Over the semester we'll post weekly updates here documenting our progress,
+      analyses, and findings as we work through the course assignments.
+    </p>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar">
+      <ul class="week-list">
+        <li><a href="#week-1">Week 1</a></li>
+        <li><a href="#week-2" class="placeholder">Week 2</a></li>
+        <li><a href="#week-3" class="placeholder">Week 3</a></li>
+        <li><a href="#week-4" class="placeholder">Week 4</a></li>
+        <li><a href="#week-5" class="placeholder">Week 5</a></li>
+        <li><a href="#week-6" class="placeholder">Week 6</a></li>
+        <li><a href="#week-7" class="placeholder">Week 7</a></li>
+        <li><a href="#week-8" class="placeholder">Week 8</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="week-1">
+        <div class="week-heading">
+          <h2>Week 1</h2>
+          <p class="week-sub">Toolbox Shakedown</p>
+        </div>
+        <h3>What I asked</h3>
+        <p>
+          How does the Marvel Wikipedia link network split by in-degree
+          versus out-degree? Who gets linked to the most, who links out
+          the most &mdash; and are they even the same characters?
+        </p>
+
+        <h3>What I did</h3>
+        <p>
+          I loaded the week-1 snapshot: 303 characters and 1784 directed
+          links. Collapsing that to an undirected network gives 1434 pairs
+          and an average degree of about 9.5, which matches the course
+          page's numbers. From there I computed each character's in-degree
+          and out-degree, and plotted both as P(k) against k+1 on linear
+          and log-log axes. To keep the noisy tail readable, I used bins
+          that start at width 1 and double in size further out.
+        </p>
+
+        <h3>What surprised me</h3>
+
+        <h4>In-degree vs out-degree</h4>
+        <figure class="post-figure">
+          <img src="indegree_plot.png" alt="In-degree and out-degree distributions of the Marvel Wikipedia link network, shown as P(k) vs k+1 on linear and log-log axes.">
+        </figure>
+        <p>
+          In-degree and out-degree turned out to tell very different
+          stories. Spider-Man has an in-degree of 106 &mdash; about a third
+          of the network links to him &mdash; but even the character with
+          the most outgoing links, Betsy Braddock, only reaches 28. That
+          makes sense once you think about where the links come from: other
+          editors decide who links to you, but you decide who you link out
+          to. That naturally caps out-degree in a way in-degree never is.
+        </p>
+
+        <h4>Power law or not?</h4>
+        <p>
+          I also compared the real in-degree distribution to synthetic
+          exponential and power-law samples, and I don't see a clear pattern
+          that it resembles either one cleanly. On the log-log plot, it
+          might resemble the power law in the tail, but not clearly. On the
+          linear-log plot, it looks more like the exponential for the lower
+          values - but I'm not confident calling it exponential either.
+        </p>
+        <p>
+          From the earlier reading, a power law and a lognormal can fit
+          almost the same curve, so "looks straight on log-log" isn't proof
+          by itself.
+        </p>
+        <figure class="post-figure">
+          <img src="powerlaw_comparison.png" alt="Comparison of the real in-degree distribution against synthetic exponential and power-law samples on linear and log-log axes.">
+        </figure>
+      </section>
+
+      <section id="week-2">
+        <div class="week-heading">
+          <h2>Week 2</h2>
+        </div>
+        <p class="empty">Not posted yet.</p>
+      </section>
+
+      <section id="week-3">
+        <div class="week-heading">
+          <h2>Week 3</h2>
+        </div>
+        <p class="empty">Not posted yet.</p>
+      </section>
+
+      <section id="week-4">
+        <div class="week-heading">
+          <h2>Week 4</h2>
+        </div>
+        <p class="empty">Not posted yet.</p>
+      </section>
+
+      <section id="week-5">
+        <div class="week-heading">
+          <h2>Week 5</h2>
+        </div>
+        <p class="empty">Not posted yet.</p>
+      </section>
+
+      <section id="week-6">
+        <div class="week-heading">
+          <h2>Week 6</h2>
+        </div>
+        <p class="empty">Not posted yet.</p>
+      </section>
+
+      <section id="week-7">
+        <div class="week-heading">
+          <h2>Week 7</h2>
+        </div>
+        <p class="empty">Not posted yet.</p>
+      </section>
+
+      <section id="week-8">
+        <div class="week-heading">
+          <h2>Week 8</h2>
+        </div>
+        <p class="empty">Not posted yet.</p>
+      </section>
+
+      <section id="group">
+        <div class="week-heading">
+          <h2>Group</h2>
+          <p class="week-sub">Maria Poulsen</p>
+        </div>
+        <p>
+          In math, a group is the study of symmetry &mdash; all the ways you
+          can rearrange something without really changing it. Social graphs
+          have their own version of this: a network's automorphism group is
+          every way you can relabel its nodes while keeping the connections
+          exactly the same, uncovering hidden symmetries in who's linked to
+          whom.
+        </p>
+        <p>
+          Speaking of groups &mdash; meet this one: Maria Poulsen, currently a
+          network of exactly one node and one loop<span class="weak-letter">Y</span> edge.
+        </p>
+      </section>
+
+      <footer>
+        <p>Social Graphs and Interactions, 2026</p>
+      </footer>
+    </main>
+
+    <aside class="sidebar sidebar-right"></aside>
+  </div>
+
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+
+    const weekLinks = document.querySelectorAll('.week-list a, .brain-graph-link');
+    const weekSections = document.querySelectorAll('main > section[id]');
+    const weekListEl = document.querySelector('.week-list');
+    const siteHeader = document.querySelector('.site-header');
+
+    function positionNav() {
+      if (!weekListEl || !siteHeader) return;
+      if (window.matchMedia('(max-width: 640px)').matches) {
+        weekListEl.style.top = '';
+        return;
+      }
+      const headerHeight = siteHeader.getBoundingClientRect().height;
+      weekListEl.style.top = (headerHeight + 32 + 10) + 'px';
+    }
+
+    function showWeek(id, scroll) {
+      let found = false;
+      weekSections.forEach(function (section) {
+        const match = section.id === id;
+        section.hidden = !match;
+        if (match) found = true;
+      });
+      if (!found) {
+        weekSections.forEach(function (section) {
+          section.hidden = section.id !== 'week-1';
+        });
+        id = 'week-1';
+      }
+      weekLinks.forEach(function (link) {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+      });
+
+      const shown = document.getElementById(id);
+      if (shown) {
+        shown.classList.remove('fade-in');
+        void shown.offsetWidth;
+        shown.classList.add('fade-in');
+      }
+
+      if (scroll) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function currentWeekId() {
+      return window.location.hash ? window.location.hash.slice(1) : 'week-1';
+    }
+
+    weekLinks.forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        const id = link.getAttribute('href').slice(1);
+        if (id !== currentWeekId()) {
+          history.pushState(null, '', '#' + id);
+        }
+        showWeek(id, true);
+      });
+    });
+
+    window.addEventListener('popstate', function () {
+      showWeek(currentWeekId(), true);
+    });
+
+    window.addEventListener('resize', positionNav);
+    window.addEventListener('load', positionNav);
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', positionNav);
+    }
+    positionNav();
+    showWeek(currentWeekId(), false);
+  </script>
+</body>
+</html>
