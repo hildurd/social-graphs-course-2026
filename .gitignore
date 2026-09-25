@@ -1,0 +1,5 @@
+# Local working files - not published to the site
+source/
+
+# Python virtual environment
+.venv/

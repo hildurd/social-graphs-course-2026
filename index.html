@@ -26,7 +26,7 @@
     <nav class="sidebar">
       <ul class="week-list">
         <li><a href="#week-1">Week 1</a></li>
-        <li><a href="#week-2" class="placeholder">Week 2</a></li>
+        <li><a href="#week-2">Week 2</a></li>
         <li><a href="#week-3" class="placeholder">Week 3</a></li>
         <li><a href="#week-4" class="placeholder">Week 4</a></li>
         <li><a href="#week-5" class="placeholder">Week 5</a></li>
@@ -98,8 +98,101 @@
       <section id="week-2">
         <div class="week-heading">
           <h2>Week 2</h2>
+          <p class="week-sub">What Survives a Shuffle?</p>
         </div>
-        <p class="empty">Not posted yet.</p>
+        <h3>What I asked</h3>
+        <p>
+          Which properties of the Marvel network are actually interesting,
+          and which ones are just what you get automatically from the
+          degrees? If I keep every character's number of links but rewire
+          who links to whom at random, which numbers survive and which ones
+          disappear?
+        </p>
+
+        <h3>What I did</h3>
+        <p>
+          First I checked what kind of degree distribution Marvel has. The
+          CCDF of the in-degree looks much more like a Barab&aacute;si&ndash;Albert
+          network than a random one: the tail is roughly straight with a
+          slope of about &minus;1.8 (so &gamma; &asymp; 2.8), while the random
+          network's CCDF falls off a cliff before k = 10. With only 303
+          characters I can't prove it's a power law, but it is clearly
+          heavy-tailed.
+        </p>
+        <figure class="post-figure">
+          <img src="week2_ccdf_comparison.png" alt="CCDF of the Marvel in-degree compared with a 5,000-node Barabási–Albert network and a random network with the same number of nodes and links, on log-log axes.">
+        </figure>
+        <p>
+          Then I shuffle-tested five numbers. For each one I made 100
+          degree-preserving shuffles of the network (swapping the ends of
+          two links at a time, 10 times the number of links, so every
+          character keeps exactly the same degree), and compared them with
+          100 plain random networks with the same number of nodes and links.
+        </p>
+
+        <h3>What surprised me</h3>
+
+        <h4>Survivors: clustering, transitivity and reciprocity</h4>
+        <p>
+          Clustering is the big one. Marvel's giant component has C = 0.32.
+          A random network gives 0.04, and the degree-preserving shuffles
+          give 0.155. So the hubs explain part of the clustering, but most
+          of it is still there after the shuffle. Transitivity behaves the
+          same way (0.18 real vs. 0.12 shuffled). That extra clustering has
+          to come from somewhere else than the degrees, and my guess is
+          teams: the Avengers and X-Men pages all link to each other.
+        </p>
+        <p>
+          Reciprocity also survives. 39% of the directed links go both ways.
+          A random directed network gives about 2%, which sounds like a huge
+          effect, but the hubs cheat a bit: a character like Spider-Man links
+          out a lot and gets linked a lot, so mutual links happen by chance.
+          With in- and out-degrees kept, the chance level is 6%. Still six
+          times less than the real network, so the effect is real, just
+          smaller than the naive comparison says.
+        </p>
+        <figure class="post-figure">
+          <img src="week2_clustering_nulls.png" alt="Left: histograms of the clustering coefficient for 100 random networks, 100 configuration-model networks and 100 edge-swapped networks, with the real Marvel value far to the right. Right: links lost per character in the configuration model versus the character's degree.">
+        </figure>
+
+        <h4>Two roads to the same null don't give the same answer</h4>
+        <p>
+          The configuration model is supposed to be the same null as the
+          edge swaps, but it landed at C = 0.11 instead of 0.155. The reason
+          is in the right panel above: when you pair up link-ends at random,
+          hubs get paired with each other several times, and those duplicate
+          links have to be thrown away. That costs about 7% of the links, and
+          almost all of them belong to the hubs &mdash; Spider-Man drops from
+          106 to about 77. Fewer hub-to-hub links means fewer triangles, so
+          the clustering comes out too low. The swaps never lose a link.
+        </p>
+
+        <h4>Casualties: isolated nodes and the friendship paradox</h4>
+        <p>
+          Marvel has 17 isolated characters. A random network with the same
+          number of links has none, so that looks remarkable &mdash; but every
+          shuffle has exactly 17 too, because the zeros are part of the
+          degree sequence. They just tell us 17 pages don't link to anyone
+          else in the category.
+        </p>
+        <p>
+          The friendship paradox dies in the same way, or rather it never
+          depended on the structure. A random character has about 9 links,
+          while their friends have about 24, and in 76% of cases the friend
+          has at least as many links. After shuffling, the numbers are
+          exactly the same. That makes sense: the size of the paradox is set
+          by the mean and the spread of the degrees, and the shuffle keeps
+          both.
+        </p>
+
+        <h4>What I take from it</h4>
+        <p>
+          Beating a random network is easy &mdash; almost everything in Marvel
+          does. The interesting question is what's left after keeping the
+          degrees. For Marvel that's clustering, transitivity and
+          reciprocity: the characters link in groups and link back to each
+          other, which the degrees alone can't explain.
+        </p>
       </section>
 
       <section id="week-3">
